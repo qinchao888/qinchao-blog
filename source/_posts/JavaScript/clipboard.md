@@ -8,7 +8,9 @@ categories:
 import React, { useEffect, useRef } from 'react';
 
 /**
- * 注：此方法具有兼容性问题，部分浏览器和低版本浏览器不支持
+ * 注：
+ * 1. 此方法具有兼容性问题，部分浏览器和低版本浏览器不支持
+ * 2. Chrome 浏览器规定，只有 HTTPS 协议的页面才能使用navigator.clipboard这个API
 */
 const copyCanvasImgToClipboard = async (canvasEl: HTMLCanvasElement) => {
   if (window.ClipboardItem && navigator.clipboard.write) {
