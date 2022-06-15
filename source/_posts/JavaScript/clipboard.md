@@ -10,7 +10,8 @@ categories:
 /**
  * 注：
  * 1. 此方法具有兼容性问题，部分浏览器和低版本浏览器不支持
- * 2. Chrome 浏览器规定，只有 HTTPS 协议的页面才能使用navigator.clipboard这个API
+ * 2. Chrome 浏览器规定，只有 HTTPS 协议或localhost的页面才能使用navigator.clipboard这个API
+ * 3. safari中只有https环境才能使用
 */
 // 复制canvas图片
 export const copyCanvasImg = async (canvasEl: HTMLCanvasElement) => {
@@ -49,7 +50,8 @@ const CopyCanvasImgDemo: React.FC<{}> = () => {
 
   const drawImg = () => {
     const context = canvasRef.current.getContext('2d');
-    var img = new Image();
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
     img.src = require('../../images/test.jpeg');
     img.onload = () => {
       context.drawImage(img, 0, 0, 300, 300);
@@ -103,3 +105,7 @@ event.clipboardData
 ```
 
 相关的npm包：copy-to-clipboard
+
+[参考文档1](https://www.ruanyifeng.com/blog/2021/01/clipboard-api.html)
+
+[参考文档2](https://cloud.tencent.com/developer/article/1780940)
