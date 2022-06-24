@@ -70,3 +70,19 @@ type T = keyof TestType;
 type T = 'a' | 'b'
 */
 ```
+
+### JSON.stringify
+
+```ts
+interface IObj {
+  name: string;
+  age: number;
+}
+
+/**
+ * JSON.stringify中的对象无法被识别，因为It's a runtime issue, and type checking is for compile time
+ * 所以需要手动指定JSON.parse后的对象的类型，即便JSON.stringify中的对象中的类型存在问题也无法被识别
+ */
+const obj: IObj = JSON.parse(JSON.stringify({name: '111', age: 2}));
+const { name, age } = obj;
+```
