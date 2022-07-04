@@ -401,6 +401,23 @@ cy.intercept('/integrations', (req) => {
 })
 ```
 
+#### 异步数据
+
+cypress中的then类似于Promise，但是不能当做Promise使用，即在内部使用 new Promise 等将或报错，只能使用链式的方式。
+
+```js
+/* @typescript-eslint/no-invalid-this: off */
+
+cy.fixture('test.json').as('testData');
+cy.fixture('user.json').then(function (res) {
+  res.data.test = this.testData;
+  const cya = cy.intercept('GET', 'api/user', res);
+  if (config.as) {
+    cya.as(config.as);
+  }
+});
+```
+
 ### 示例
 
 #### 元素遍历
