@@ -86,3 +86,11 @@ interface IObj {
 const obj: IObj = JSON.parse(JSON.stringify({name: '111', age: 2}));
 const { name, age } = obj;
 ```
+
+### document.querySelector
+
+指定类型
+
+```ts
+const testEl = document.querySelector<HTMLDivElement>('.test'); // 不指定时类型为HTMLElement
+```

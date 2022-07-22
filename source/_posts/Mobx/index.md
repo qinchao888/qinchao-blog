@@ -86,7 +86,7 @@ export default class Demo extends Component<IDemoProps> {
 ```
 
 ```tsx
-// function组件用法1
+// Function组件用法1
 import React from 'react';
 import { observer, inject } from 'mobx-react';
 import { AppStore } from '$store/index';
@@ -110,7 +110,7 @@ const Demo: React.FC<IDemoProps> = (props) => {
 
 export default inject('appStore')(observer(Demo));
 
-// function组件用法2
+// Function组件用法2
 import React from 'react';
 import { observer } from 'mobx-react';
 import appStore from '$store/index';

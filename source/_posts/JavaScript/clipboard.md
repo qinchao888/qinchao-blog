@@ -28,7 +28,7 @@ export const copyCanvasImg = async (canvasEl: HTMLCanvasElement) => {
 
 // 复制文本
 export const copyText = async (text: string) => {
-  if (window.ClipboardItem && navigator.clipboard.writeText) {
+  if (navigator.clipboard.writeText) {
     await navigator.clipboard.writeText(text);
     alert('复制成功！');
   } else {
