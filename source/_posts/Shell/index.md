@@ -19,3 +19,10 @@ unset a
 c=${a-"default"}
 echo $c
 ```
+
+### 环境变量
+
+```sh
+# linux use
+. /etc/profile # is the same as source /etc/profile
+```

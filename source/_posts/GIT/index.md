@@ -1,5 +1,5 @@
 ---
-title: GIT
+title: GIT基础用法
 categories: 
 - GIT
 ---
@@ -59,4 +59,23 @@ git checkout -f # 清除未被add和commit的文件（在原文件上做改动�
 > git add -A # 继续处理冲突，如果有
 ...
 > git push -f
+```
+
+### fetch 和 pull
+
+git pull 等价于 git fetch + git merge
+
+git fetch：取回所有分支的更新
+
+git merge：应用所有更新
+
+git pull origin master：拉取远程master分支上的变更并且merge到本地的master分支上
+
+```sh
+> git checkout master # 本地的master分支
+> git fetch origin master # 将origin/master上的变更拉取到本地的remotes/origin/master上
+> git checkout origin/master
+> git log # 可以查看到刚拉取到的新的变更
+> git checkout master
+> git merge origin/master # 将本地的remotes/origin/master上新的变更merge到当前的master分支上
 ```
