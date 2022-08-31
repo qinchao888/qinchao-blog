@@ -16,3 +16,13 @@ document.querySelector(`[id="${myId}"]`)
 
 [参考](https://stackoverflow.com/questions/37270787/uncaught-syntaxerror-failed-to-execute-queryselector-on-document)
 
+
+### hr元素设置颜色
+
+```css
+hr {
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+```

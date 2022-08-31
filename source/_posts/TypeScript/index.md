@@ -71,6 +71,30 @@ type T = 'a' | 'b'
 */
 ```
 
+```ts
+// 使用key in指定多个可选类型
+interface Data {
+    name: string;
+    value: string;
+}
+
+type PersonType = {
+  [key in
+    | 'name'
+    | 'age'
+    | 'year'
+  ]?: Data
+}
+/*
+等价于：
+type PersonType = {
+  name?: Data | undefined;
+  age?: Data | undefined;
+  year?: Data | undefined;
+}
+*/
+```
+
 ### JSON.stringify
 
 ```ts
@@ -94,3 +118,19 @@ const { name, age } = obj;
 ```ts
 const testEl = document.querySelector<HTMLDivElement>('.test'); // 不指定时类型为HTMLElement
 ```
+
+### filter(Boolean)
+
+```ts
+// 不能推断出真实的数据类型
+var s = [1, null, false].filter(Boolean) // var s: (number | boolean | null)[]
+
+// 解决办法
+s.filter((val): val is number => Boolean(val)) // var s: number[]
+```
+
+### is 和 as
+
+is：类型保护
+
+as：类型断言
