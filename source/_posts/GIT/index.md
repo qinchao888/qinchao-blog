@@ -4,6 +4,14 @@ categories:
 - GIT
 ---
 
+### branch
+
+```sh
+git branch -d feat # 删除本地分支
+git push origin --delete feat # 删除远程分支
+git branch -a # 查看分支
+```
+
 ### cherry-pick
 
 #### 指定的commit应用于其他分支

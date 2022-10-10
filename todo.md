@@ -9,3 +9,5 @@
 4. create-react-app搭建的项目编译太慢
 5. eslint配置 插件和loader的使用
 6. package配置
+7. setTimeout影响gui渲染
+8. standard-version

@@ -27,6 +27,9 @@ npm outdated
 
 # 指定别名
 npm i aliasname@npm:package # 例：npm i lodash2@npm:loadsh@2.2.1
+
+# 查看全局安装的包
+npm list -g --depth 0
 ```
 
 ### 包版本
