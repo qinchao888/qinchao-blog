@@ -11,3 +11,6 @@
 6. package配置
 7. setTimeout影响gui渲染
 8. standard-version
+9. 异步css阻塞了页面的渲染
+10. pnpm
+11. tslint中parser和plugin各自的作用
