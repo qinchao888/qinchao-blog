@@ -134,3 +134,21 @@ s.filter((val): val is number => Boolean(val)) // var s: number[]
 is：类型保护
 
 as：类型断言
+
+### declare
+
+用于声明全局变量
+
+```ts
+// index.d.ts
+export declare const Status: ['small', 'normal', 'large'];
+export interface Props {
+  status: typeof Status[number]; // "small" | "normal" | "large"
+}
+
+// index.ts
+export const Status = ['small', 'normal', 'large'] as const
+export interface Props {
+  status: typeof Status[number]; // "small" | "normal" | "large"
+}
+```

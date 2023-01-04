@@ -36,3 +36,44 @@ env | grep PATH # 查看PATH路径
 which node # 查看node的安装路径
 ```
 
+### 判断
+
+shell中没有布尔值
+
+```sh
+a=true
+b='true'
+if [ "$a" = true ]
+# if [ "$a" = 'true' ]
+# if [ "$b" = true ]
+# if [ "$b" = 'true' ]
+then
+  echo true
+else
+  echo false
+fi
+# 上述四种情况返回的均为true
+```
+
+#### 字符串空和非空判断
+
+```sh
+# -n：当串的长度大于0时为真(串非空)
+a=''
+if [ ! -n "$a" ] # 字符串为空
+then
+  echo 'yes'
+else
+  echo 'no'
+fi
+# yes　　　　　 
+
+b='b'
+if [ -n "$b" ] # 字符串非空
+then
+  echo 'yes'
+else
+  echo 'no'
+fi
+# yes
+```
