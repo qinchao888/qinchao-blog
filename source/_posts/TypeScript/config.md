@@ -23,3 +23,24 @@ tsc
 # tsconfig.json配置生效
 tsc -p ./
 ```
+
+### ts-node
+
+直接在命令行使用ts-node编译ts文件，查看输出结果
+
+
+```ts
+// a.ts
+const aa: number = 10
+console.log(aa)
+```
+
+```sh
+# 需要安装 ts-node 和 @types/node
+> npm i ts-node -g
+> npm i @types/node -D
+
+# 执行
+> ts-node a.ts
+10
+```

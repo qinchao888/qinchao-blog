@@ -61,3 +61,44 @@ import Plus from '$assets/plus.svg';
 
 // fill="currentColor"设置后，可以通过上下文的color设置icon的颜色，前提是icon图片的颜色固定，即原svg的fill="none"或fill="currentColor"
 ```
+
+```js
+// webpack5配置
+{
+  test: /\.svg$/,
+  use: [
+    {
+      loader: require.resolve('@svgr/webpack'),
+      options: {
+        prettier: false,
+        svgo: false,
+        svgoConfig: {
+          plugins: [{ removeViewBox: false }],
+        },
+        titleProp: true,
+        ref: true,
+      },
+    },
+    {
+      loader: require.resolve('file-loader'),
+      options: {
+        name: 'static/media/[name].[hash:8].[ext]',
+      },
+    },
+  ],
+  issuer: {
+    and: [/\.(ts|tsx|js|jsx|md|mdx)$/],
+  },
+},
+
+/**
+ * issuer表示仅针对ts或tsx等文件中的svg文件使用@svgr/webpack处理。
+ * 配置了file-loader后，svg默认将导出一个url地址和一个ReactComponent对象，不配置则默认导出的是一个ReactComponent
+*/
+```
+
+webpack5中这种配置@svgr/webpack?-svgo,+titleProp,+ref![path]不再被支持
+
+## html-webpack-plugin
+
+chunks: 将对应的文件（entry中指定的那一个）打入对应的HTML文件中。

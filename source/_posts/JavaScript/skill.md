@@ -17,3 +17,15 @@ el.style.clip = 'rect(0, 0, 0, 0)';
 ```js
 htmlText.replace(/>\s+</g, '><').replace(/\r|\n|\r\n/g, '').trim();
 ```
+
+### 缓存对象
+
+```js
+const cacheObj = (cache => thing => {
+  const str = Object.prototype.toString.call(thing);
+  return cache[str] || (cache[str] = str.slice(8, -1).toLowerCase());
+})(Object.create(null));
+
+cacheObj({}) // 'object'
+cacheObj(new FormData()) // 'formdata'
+```
