@@ -16,6 +16,5 @@ categories:
 127.0.0.1       localhost.charlesproxy.com
 ```
 
-<img src="../../images/charles/charles-proxysetting.png" width="200">
-
-<img src="../../images/charles/charles-proxysetting-mac.png" width="200">
+<img src="/images/charles/charles-proxysetting.png" width="50%">
+<img src="/images/charles/charles-proxysetting-mac.png" width="50%">

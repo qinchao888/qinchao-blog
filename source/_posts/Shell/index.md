@@ -4,6 +4,21 @@ categories:
 - Shell
 ---
 
+### 基础
+
+```sh
+#!/bin/sh # 指解释此脚本的shell路径为/bin/sh，如果没有声明，则脚本将在默认的shell中执行
+
+set -e # 返回值非0脚本退出，如：当访问一个不存在的文件时，脚本将会退出，而不是继续执行，从而出现一些意外的情况
+
+sh test.sh p1 p2
+$1 # shell的第一个参数，此处为p1
+$2 # shell的第二个参数，此处为p2
+$# # shell参数个数，此处为2
+
+mkdir -p dir1/dir2 # 递归创建文件夹
+```
+
 ### 使用 - 或 :- 
 
 当值未设置时使用默认值，否则使用当前值
@@ -76,4 +91,31 @@ else
   echo 'no'
 fi
 # yes
+
+a=''
+if [ $a ]; then # 字符串非空
+  a=10
+fi
+echo $a # ''
+
+# -z string
+# True if the length of string is zero.
+a=''
+if [ -z $a ]; then # 为空字符串
+  a=10
+fi
+echo $a # 10
+
+
+a=''
+if [ "$a" = '' ]; then # 为空字符串
+  a=10
+fi
+echo $a # 10
+
+a=''
+if [ X"$a" = X ]; then # 为空字符串
+  a=10
+fi
+echo $a # 10
 ```

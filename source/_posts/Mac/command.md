@@ -11,6 +11,16 @@ echo aaa > a.txt # 向文件a.txt中写入内容aaa（会覆盖源文件内容�
 echo aaa >> a.txt # 向文件a.txt中追加内容aaa
 ```
 
+## tar
+
+```sh
+tar -zxvf package -C target # 将package解析到target文件夹下
+# -z 通过gzip指令处理备份文件
+# -x 从备份文件中还原文件（解压）
+# -v 显示所有过程
+# -f 指定备份文件（该参数是最后一个参数）
+```
+
 ## wc
 
 ```sh
